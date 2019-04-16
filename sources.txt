@@ -1,0 +1,8 @@
+https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+
+
+https://www.youtube.com/watch?v=Zxf1mnP5zcw  got to 21:45
+
+Google API KEY = AIzaSyA2Z73bHqtsEJuas82kslWAoAegg5Rxrco
+
+Barley Co -- 32.8419369,-96.7706972

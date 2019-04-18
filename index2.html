@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <title>Yelp App Attempt</title>
+  </title>
+</head>
+
+<body>
+
+  <h1>Yelp Fusion Data <i class="fas fa-beer"></i></h1>
+  <div class="info">
+    <br>
+  </div>
+  <div class="image-here">
+
+  </div>
+  <div class="container p-4">
+    <div class="reviews">
+
+    </div>
+  </div>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script>
+    var key =
+      'eIqZX7CEvRRNsgevXTVuA6afsf4Kng_FlFy8DBG1h1drwjN86a3zfOlgzhelZP_728vAicBVGP_ad3bS5aue2QKA6WNy5o63BDOlKVc9x5ey4Nkv2xPfCFtLocm3XHYx';
+    var loc = 'location=dallas';
+    // var categories = 'categories=beerbar';
+    var term = 'term=happy%20hour'
+    var businessID = 'VJyE0wCtZtoLev9YgXYpIQ';
+
+
+    var buzzURL =
+      'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?' +
+      loc +
+      '&' +
+      //   categories;
+      // '&' +
+      term +
+      '&limit=2';
+
+    var buzzDetailURL =
+      'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/' + businessID;
+
+    var buzzReviewURL =
+      'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/' + businessID + '/reviews';
+
+    function getData() {
+      $.ajax({
+        url: buzzURL,
+        type: 'GET',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', 'Bearer ' + key);
+          xhr.setRequestHeader('X-Requested-With', 'true');
+        },
+        success: function (data) {
+          console.log('----Here is the 1 st set of Data ', data);
+          console.log(data.businesses[0].id);
+          console.log(data.businesses[0].coordinates);
+          businessID = data
+            .businesses[0].id;
+          console.log("id: " + businessID);
+        },
+      });
+    }
+
+    function getDataByID() {
+      $.ajax({
+        url: buzzDetailURL,
+        type: 'GET',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', 'Bearer ' + key);
+          xhr.setRequestHeader('X-Requested-With', 'true');
+        },
+
+        success: function (data) {
+          console.log(data);
+          var name = $('<h2>').html('Name: ' + data.name);
+          var ident = $('<p>').html('ID: ' + data.id);
+
+          var cat = $('<h3>').html('Category: ' + data.categories[0].title);
+          var addr = $('<h4>').html('Street address: ' + data.location.display_address);
+
+          var phone = $('<h4>').html('Phone: ' + data.phone);
+          var coords = $('<h4>').html("Latitude: " + data.coordinates.latitude + "  Longitude: " + data
+            .coordinates
+            .longitude);
+          var hours = $('<h4>').html('Hours: Monday-Saturday ' + data.hours[0].open[0].start + ' - ' + data.hours[
+            0].open[0].end);
+
+          $('.info').append(name, ident, cat, addr, phone, coords, hours);
+
+
+          for (let j = 0; j < data.photos.length; j++) {
+            var photos = $('<img>');
+            photos.attr("src", data.photos[j]);
+            photos.css("height", "200px");
+            $('.image-here').append(photos);
+          }
+          console.log("-----id again----- " + data.id)
+
+          getreviewsByID();
+        },
+      });
+    }
+
+
+    function getreviewsByID() {
+      $.ajax({
+        url: buzzReviewURL,
+        type: 'GET',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', 'Bearer ' + key);
+          xhr.setRequestHeader('X-Requested-With', 'true');
+        },
+
+        success: function (data) {
+          var reviewTitle = $('<h2>').html('Reviews');
+          $('.info').append(reviewTitle);
+          for (let k = 0; k < data.reviews.length; k++) {
+            var reviews = $('<p>').html(data.reviews[k].text);
+            $('.reviews').append(reviews);
+          }
+
+        },
+      });
+    }
+
+    getDataByID();
+    getData();
+  </script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

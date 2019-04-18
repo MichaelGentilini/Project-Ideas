@@ -66,7 +66,7 @@
           xhr.setRequestHeader('X-Requested-With', 'true');
         },
         success: function (data) {
-          console.log('----Here is the 1 st set of Data ', data);
+          console.log('----Here is the 1st set of Data ', data);
           console.log(data.businesses[0].id);
           console.log(data.businesses[0].coordinates);
           businessID = data
@@ -89,19 +89,25 @@
           console.log(data);
           var name = $('<h2>').html('Name: ' + data.name);
           var ident = $('<p>').html('ID: ' + data.id);
-
+        var price = $('<h4>').html('Price: ' + data.price);
+          var reviewCount = $('<h4>').html('Reviews Total: ' + data.review_count);
           var cat = $('<h3>').html('Category: ' + data.categories[0].title);
           var addr = $('<h4>').html('Street address: ' + data.location.display_address);
 
-          var phone = $('<h4>').html('Phone: ' + data.phone);
+          var phone = $('<h4>').html('Phone: ' + data.display_phone);
           var coords = $('<h4>').html("Latitude: " + data.coordinates.latitude + "  Longitude: " + data
             .coordinates
             .longitude);
           var hours = $('<h4>').html('Hours: Monday-Saturday ' + data.hours[0].open[0].start + ' - ' + data.hours[
             0].open[0].end);
+          var hoursObject = data.hours[0];
+          console.log("Here are the hours: "+hoursObject);
 
-          $('.info').append(name, ident, cat, addr, phone, coords, hours);
+          $('.info').append(name, ident, price, reviewCount,cat, addr, phone, coords, hours);
 
+    var theObject = JSON.stringify(data)
+
+  $('.info').append('<br><h2>The Object Data</h2><br>',theObject,'<br><br>')
 
           for (let j = 0; j < data.photos.length; j++) {
             var photos = $('<img>');
@@ -140,6 +146,9 @@
 
     getDataByID();
     getData();
+
+
+
   </script>
 
 

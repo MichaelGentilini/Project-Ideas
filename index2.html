@@ -28,7 +28,11 @@
     </div>
   </div>
 
+  <button type="button" class="btn btn-primary">
+    <a href="index.html">Take me home</a></button>
 
+  <button type="button" class="btn btn-primary">
+    <a href="location.html">Take me to location results</a></button>
 
 
   <script src="https://code.jquery.com/jquery-3.4.0.min.js"
@@ -89,7 +93,7 @@
           console.log(data);
           var name = $('<h2>').html('Name: ' + data.name);
           var ident = $('<p>').html('ID: ' + data.id);
-        var price = $('<h4>').html('Price: ' + data.price);
+          var price = $('<h4>').html('Price: ' + data.price);
           var reviewCount = $('<h4>').html('Reviews Total: ' + data.review_count);
           var cat = $('<h3>').html('Category: ' + data.categories[0].title);
           var addr = $('<h4>').html('Street address: ' + data.location.display_address);
@@ -101,13 +105,13 @@
           var hours = $('<h4>').html('Hours: Monday-Saturday ' + data.hours[0].open[0].start + ' - ' + data.hours[
             0].open[0].end);
           var hoursObject = data.hours[0];
-          console.log("Here are the hours: "+hoursObject);
+          console.log("Here are the hours: " + hoursObject);
 
-          $('.info').append(name, ident, price, reviewCount,cat, addr, phone, coords, hours);
+          $('.info').append(name, ident, price, reviewCount, cat, addr, phone, coords, hours);
 
-    var theObject = JSON.stringify(data)
+          var theObject = JSON.stringify(data)
 
-  $('.info').append('<br><h2>The Object Data</h2><br>',theObject,'<br><br>')
+          $('.info').append('<br><h2>The Object Data</h2><br>', theObject, '<br><br>')
 
           for (let j = 0; j < data.photos.length; j++) {
             var photos = $('<img>');
@@ -146,9 +150,6 @@
 
     getDataByID();
     getData();
-
-
-
   </script>
 
 

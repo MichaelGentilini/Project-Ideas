@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -115,6 +116,11 @@
 
   </div>
 
+  <button type="button" class="btn btn-primary">
+    <a href="location.html">Take me to layout ideas</a></button>
+
+  <button type="button" class="btn btn-primary">
+    <a href="index2.html">Take me to API results</a></button>
   <script>
     function initMap() {
       // Map options
@@ -161,19 +167,19 @@
 
       addMarker({
         coordinates: {
-          lat:   32.8419369,
-          lng:  -96.7706972
+          lat: 32.8419369,
+          lng: -96.7706972
         },
         iconImage: beerImage,
         content: '<h2>Barley House</h2><p class="rating"><i class="fa fa-star"></i></i><i class="fa fa-star"></i></i><i class="fa fa-star"></i></i><i class="fa fa-star"></i></i> <i class="fa fa-star-half"></i></p><br><a href="./location.html">Location Page</a>',
       });
-   
+
       addMarker({
         coordinates: {
           lat: 32.845885,
           lng: -96.783393
         },
-                iconImage: schoolImage,
+        iconImage: schoolImage,
         content: '<h2>We meet Jon here!</h2>'
       });
 

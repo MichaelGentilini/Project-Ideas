@@ -27,9 +27,15 @@ a {
   margin: auto;
 }
 
-h1 {
-  padding: 50px;
+h1,
+h3 {
+  /* padding: 50px; */
   text-align: center;
+}
+
+h3 {
+  padding-top: 50px;
+  font-style: italic;
 }
 
 .btn-light {

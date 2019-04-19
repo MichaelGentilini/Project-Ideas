@@ -186,13 +186,14 @@ function getData() {
 
 
 
-      function barButton() {
+      // ! This function will create buttons (Repeating element) for each bar on the 1st page based on
 
+      function barButton() {
         var barDiv = $('<div>').addClass('bars');
         for (var i = 0; i < searchLimit; i++) {
           var barBtn = $('<button>');
           barBtn.addClass("btn btn-light btn-lg")
-          barBtn.html(data.businesses[i].name + '<br>' + [data.businesses[i].price]);
+          barBtn.html(data.businesses[i].name + '<br>' + "rating: " + [data.businesses[i].rating]);
           barBtn.attr('id', [data.businesses[i].id]);
           // barDiv.append(barBtn)
           barBtn.appendTo('.bar-btn');
@@ -213,10 +214,6 @@ function getData() {
 }
 
 
-// ! This function will create buttons (Repeating element) for each bar on the 1st page based on the user parameter
-
-
-
 
 
 function getDataByID() {
@@ -230,10 +227,8 @@ function getDataByID() {
 
     success: function (data) {
       console.log(data);
-      var name = $('<h2>').html('Name: ' + data.name);
-      var ident = $('<p>').html('ID: ' + data.id);
+      var name = $('<h2>').html(data.name);
       var price = $('<h4>').html('Price: ' + data.price);
-      var reviewCount = $('<h4>').html('Reviews Total: ' + data.review_count);
       var cat = $('<h3>').html('Category: ' + data.categories[0].title);
       var addr = $('<h4>').html('Street address: ' + data.location.display_address);
 
@@ -245,12 +240,7 @@ function getDataByID() {
       var hoursObject = data.hours[0];
       // console.log("Here are the hours: " + hoursObject);
 
-      $('.info').append(name, ident, price, reviewCount, cat, addr, phone, coords);
-
-      var theObject = JSON.stringify(data)
-
-      $('.info').append('<br><h2>The Object Data</h2><br>', theObject, '<br><br>')
-
+      $('.info').append(name, price, cat, addr, phone, coords);
       for (let j = 0; j < data.photos.length; j++) {
         var photos = $('<img>');
         photos.attr("src", data.photos[j]);
@@ -279,7 +269,8 @@ function getreviewsByID() {
       $('.info').append(reviewTitle);
       for (let k = 0; k < data.reviews.length; k++) {
         var reviews = $('<p>').html(data.reviews[k].text);
-        $('.reviews').append(reviews);
+        var br =
+          $('.reviews').append(reviews);
       }
 
     },

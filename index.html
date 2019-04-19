@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
-  <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 
 
   <style>
@@ -115,132 +115,23 @@
     </div>
 
   </div>
+  <div class="button-div align-center">
+    <button type="button" class="btn btn-primary">
+      <a href="location.html">Take me to layout ideas</a></button>
 
-  <button type="button" class="btn btn-primary">
-    <a href="location.html">Take me to layout ideas</a></button>
+    <button type="button" class="btn btn-primary">
+      <a href="index2.html">Take me to API results</a></button>
+  </div>
 
-  <button type="button" class="btn btn-primary">
-    <a href="index2.html">Take me to API results</a></button>
-  <script>
-    function initMap() {
-      // Map options
-      var options = {
-        zoom: 13,
-        center: {
-          lat: 32.845885,
-          lng: -96.783393
-        }
-      }
-      //  * create new map
-      var map = new google.maps.Map(document.getElementById('map'), options);
-      var schoolImage = 'https://img.icons8.com/nolan/64/000000/school.png';
-      var coffeeImage = 'https://img.icons8.com/color/48/000000/cafe.png';
-      var beerImage = 'https://img.icons8.com/ios/50/000000/beer.png';
 
-      // ! add marker function *
-      addMarker({
-        coordinates: {
-          lat: 32.87232,
-          lng: -96.772507
-        },
-        iconImage: 'https://img.icons8.com/color/48/000000/cafe.png',
-        content: '<img src="http://i.imgur.com/4H1Fei6.jpg"><h3>Panera</><h3>Address</h3><a href="https://locations.panerabread.com/tx/dallas/7839-park-ln.html?utm_medium=display-ad&utm_source=paid-digital&utm_campaign=yext&utm_content=local-search">Panera</a><h3>Ratings</h3>'
 
-      });
-      // addMarker({
-      //   coordinates: {
-      //     lat: 32.847997,
-      //     lng: -96.787064
-      //   },
-      //   // iconImage: 'https://img.icons8.com/color/48/000000/cafe.png',
-      //   content: '<h2>Coffee Shop</h2>'
-      // });
+  <script src="./assets/js/buzz.js"></script>
 
-      addMarker({
-        coordinates: {
-          lat: 32.880896,
-          lng: -96.769267
-        },
-        iconImage: 'https://img.icons8.com/color/48/000000/cafe.png',
-        content: '<h2>Coffee Shop</h2>',
-      });
-
-      addMarker({
-        coordinates: {
-          lat: 32.8419369,
-          lng: -96.7706972
-        },
-        iconImage: beerImage,
-        content: '<h2>Barley House</h2><p class="rating"><i class="fa fa-star"></i></i><i class="fa fa-star"></i></i><i class="fa fa-star"></i></i><i class="fa fa-star"></i></i> <i class="fa fa-star-half"></i></p><br><a href="./location.html">Location Page</a>',
-      });
-
-      addMarker({
-        coordinates: {
-          lat: 32.845885,
-          lng: -96.783393
-        },
-        iconImage: schoolImage,
-        content: '<h2>We meet Jon here!</h2>'
-      });
-
-      // addMarker({
-      //   coordinates: {
-      //     lat: 32.842585,
-      //     lng: -96.772146
-      //   },
-      //   iconImage: beerImage,
-      //   content: '<h3>This place has Happy Hour</h3>'
-      // });
-
-      function addMarker(props) {
-        var marker = new google.maps.Marker({
-          position: props.coordinates,
-          map: map,
-        })
-        // Check for an Icon
-        if (props.iconImage) {
-          // Set Icon Image
-          marker.setIcon(props.iconImage)
-        }
-
-        // check for content
-        if (props.content) {
-
-          var info = new google.maps.InfoWindow({
-            content: props.content
-          });
-          marker.addListener('click', function () {
-            info.open(map, marker);
-          });
-        }
-      }
-    }
-
-    function locationMap() {
-      // Map options
-      var options = {
-        zoom: 13,
-        center: {
-          lat: 32.845885,
-          lng: -96.783393
-        }
-      }
-
-      function initMap() {
-        var locationMarker = new google.maps.Marker({
-          position: {
-            lat: 32.8458281,
-            lng: 96.7701872
-          },
-          map: locationMap
-        })
-      }
-    }
-  </script>
-
+  <!-- * This is the google Map Call * -->
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2Z73bHqtsEJuas82kslWAoAegg5Rxrco&libraries=places&callback=initMap">
   </script>
+
 
 </body>
 

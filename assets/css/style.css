@@ -11,7 +11,7 @@ img {
 
 #map {
   height: 100%;
-  width: 80%;
+  width: 60%;
   padding: 50px;
   margin: auto;
 }
@@ -41,7 +41,7 @@ h3 {
 .btn-light {
   width: 80%;
   margin: .5em 0;
-  padding: 1em;
+  padding: .2em;
 }
 
 .btn-primary {

@@ -10,112 +10,45 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 
-
-  <style>
-    body {
-      height: 100vh;
-    }
-
-    img {
-      width: 100%
-    }
-
-    #map {
-      height: 50%;
-      width: 50%;
-      padding: 50px;
-      margin: auto;
-    }
-
-    #locationMap {
-      height: 25%;
-      width: 20%;
-      padding: 100px;
-      margin: auto;
-    }
-
-    h1 {
-      padding: 50px;
-      text-align: center;
-    }
-  </style>
-
 </head>
 <html>
 
 <body>
-  <h1>Coffee Shops Near School</h1>
-  <div id="map"></div>
-  <p></p>
+  <h1>Find My Buzz</h1>
 
-  <div class="container mt-5">
-
-
-
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <img class="card-img-top"
-            src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
-            height="300rem">
-          <div class="card-body col-6">
-            <h4 class="card-title">Restaurant Name <i class="fas fa-beer"></i> </h4>
-            <p class="card-text">$ Rating - Categories - Cuisine</i> </p>
-            <p class="card-text"># of Stars</i> </p>
-            <h5 class="card-text">Cost of an Uber Home</i></h5>
-            <div class="card col-12">
-              <div class="card-body">
-                <p>Address</p>
-                <p>Phone</p>
-                <p>Website</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="row mt-5">
+    <!-- Google Map Loads here -->
+    <div class="col-8">
+      <div id="map"></div>
     </div>
 
-
-    <div class="row">
-      <div class="card col-12">
-        <div class="card-body">
-          <h4 class="card-title">Happy Hour</h4>
-          <p class="card-text">details here</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="card col-12">
-        <div class="card-body">
-          <h4 class="card-title">Hours</h4>
-          <p class="card-text">hours go here</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="card col-12">
-        <div class="card-body">
-          <h4 class="card-title">Recent Reviews</h4>
-          <p class="card-text">#reviews</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mb-5">
-      <div class="card col-12">
-        <div class="card-body">
-          <div id="locationMap">
-
-          </div>
-
-        </div>
+    <!-- Use this for dynamic buttons -->
+    <div class="col">
+      <div class="barDiv">
       </div>
     </div>
 
   </div>
-  <div class="button-div align-center">
+
+  <div class="dynamic mt-5">
+
+    <h3>Yelp Fusion Data - powered by <i class="fab fa-yelp"></i></h3>
+    <div class="info">
+      <br>
+    </div>
+    <div class="image-here">
+
+    </div>
+    <div class="container p-4">
+      <div class="reviews">
+
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  <div class="btn-div mt-5">
     <button type="button" class="btn btn-primary">
       <a href="location.html">Take me to layout ideas</a></button>
 
@@ -123,15 +56,14 @@
       <a href="index2.html">Take me to API results</a></button>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 
-
-  <script src="./assets/js/buzz.js"></script>
-
-  <!-- * This is the google Map Call * -->
+  <script src="./assets/js/buzz.js">
+  </script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2Z73bHqtsEJuas82kslWAoAegg5Rxrco&libraries=places&callback=initMap">
   </script>
-
 
 </body>
 

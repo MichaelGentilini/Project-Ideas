@@ -24,5 +24,5 @@ This is an app that uses the Google API and Yelp to find happy hours nearby.  Th
 Find Your Buzz
 
 
-working on 
-
+Helpful link for adding an array to GOOGLE API
+https://stackoverflow.com/questions/15531390/adding-array-of-markers-in-google-map

@@ -247,7 +247,6 @@ function getDataByID() {
     },
 
     success: function (data) {
-      console.log(data);
       var name = $("<h2>").html(data.name);
       var price = $("<h4>").html("Price: " + data.price);
       var cat = $("<h3>").html("Category: " + data.categories[0].title);

@@ -1,6 +1,5 @@
-// ! going to use this to test various icons
-
-
+var standardIcon =
+  "https://img.icons8.com/windows/32/000000/coconut-cocktail.png";
 
 // ? This is for the GOOGLE Map API ??????
 function initMap() {
@@ -15,7 +14,7 @@ function initMap() {
   for (i = 0; i < searchLimit; i++) {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(latArray[i], lngArray[i]),
-      icon: "https://img.icons8.com/color/48/000000/wine-glass.png",
+      icon: standardIcon,
       map: map
     });
 
@@ -34,7 +33,7 @@ var key =
   "JARq9NBksYNIfR1HQQ8z3P5r7ypZW9-Xo_bVQUO-QRgXM3XJbnpvhKuo25EXjDrm1Xq8A9Vv6-p9dHcRJlH6dVqQVbXLU_iq3CYqI1YVwxyD12qLi0-xDNo8_ba5XHYx";
 
 var term = "term=happy%20hour";
-var businessID = "VJyE0wCtZtoLev9YgXYpIQ";
+var businessID = "";
 
 // ! Empty variables for storing information to pass between API's
 var businessName = "";
@@ -54,6 +53,21 @@ var catArray = [];
 var userloc = null;
 
 var searchLimit = 0;
+
+// ! function for validation
+var regEx = /\b\d{5}\b/g;
+
+function zipValidation() {
+  if (regEx.test($("#zip-input").val())) {
+    $("#submit-search").attr("disabled", false);
+    localStorage.setItem("zip", $("#zip-input").val());
+    localStorage.setItem("search", $("#search-limit").val());
+    localStorage.setItem("timestamp", Date().toString());
+    console.log(Date().toString());
+  } else {
+    $("#submit-search").attr("disabled", true);
+  }
+}
 
 // ! This resets the prior search
 function reset() {
@@ -78,7 +92,7 @@ $('#submit-search').on("click", function (event) {
   $('#map').css("visibility", "visible");
   $('#reset-search').css("visibility", "visible");
 
-  var zipCode = $('#zip').val();
+  var zipCode = $('#zip-input').val();
   var search = $('#search-limit').val();
 
   userloc = zipCode;
@@ -139,17 +153,15 @@ $('#submit-search').on("click", function (event) {
             var cats = [data.businesses[i].categories[0].alias];
             catArray.push(cats);
             catArray = catArray;
-
             initMap();
           }
-          console.log(catArray);
         }
         barButton();
       }
     });
   }
   getData();
-})
+});
 
 
 

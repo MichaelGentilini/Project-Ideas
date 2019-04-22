@@ -26,3 +26,13 @@ Find Your Buzz
 
 Helpful link for adding an array to GOOGLE API
 https://stackoverflow.com/questions/15531390/adding-array-of-markers-in-google-map
+
+
+found Regex for 5 digits (zip code)
+
+https://stackoverflow.com/questions/4975644/regular-expression-to-match-exactly-5-digits
+
+Helpful video regarding form validation:
+https://youtu.be/8cb4auJt1TA
+
+https://mgmoser1.github.io/group-project-1/

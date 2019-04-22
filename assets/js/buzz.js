@@ -23,7 +23,6 @@ function initMap() {
         infoPopUp.setContent(nameArray[i]);
         infoPopUp.open(map, marker);
       }
-
     })(marker, i));
   }
 }
@@ -63,9 +62,10 @@ function zipValidation() {
     localStorage.setItem("zip", $("#zip-input").val());
     localStorage.setItem("search", $("#search-limit").val());
     localStorage.setItem("timestamp", Date().toString());
-    console.log(Date().toString());
+
   } else {
     $("#submit-search").attr("disabled", true);
+    $('#map').css("visibility", "hidden");
   }
 }
 

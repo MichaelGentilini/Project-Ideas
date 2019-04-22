@@ -63,6 +63,7 @@ var userloc = null;
 var searchLimit = 0;
 
 
+
 // ! function for validation
 var regEx = /\b\d{5}\b/g;
 
@@ -72,9 +73,10 @@ function zipValidation() {
     localStorage.setItem("zip", $("#zip-input").val());
     localStorage.setItem("search", $("#search-limit").val());
     localStorage.setItem("timestamp", Date().toString());
-    console.log(Date().toString());
+
   } else {
     $("#submit-search").attr("disabled", true);
+    $('#map').css("visibility", "hidden");
   }
 }
 
@@ -228,6 +230,9 @@ $("#submit-search").on("click", function (event) {
                   getreviewsByID();
 
                 }
+
+                // success: function (data) {}
+
               });
             }
             // todo add usercomments in local storage

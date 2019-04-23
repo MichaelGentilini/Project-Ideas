@@ -36,3 +36,16 @@ Helpful video regarding form validation:
 https://youtu.be/8cb4auJt1TA
 
 https://mgmoser1.github.io/group-project-1/
+
+This video helped with Google geocoding
+https://www.youtube.com/watch?v=pRiQeo17u6c
+
+
+Uber AUTHENTICATION Url:
+https://login.uber.com/oauth/v2/authorize?response_type=code&client_id=D1aSsAcTrfyDIgohvVWbSdj7CJ_2YOyq&scope=delivery+places&redirect_uri=http://localhost
+
+Client ID: D1aSsAcTrfyDIgohvVWbSdj7CJ_2YOyq
+Client Secret 4-utJrYHnPmeA-GX0KU4czoOoPm_1jQNTanGqsLn
+Server Token: iOmO6i1z1bwVQq3CrzBRfsB_IFMBpmEwKAuBdTRl
+
+Access Token: JA.VUNmGAAAAAAAEgASAAAABwAIAAwAAAAAAAAAEgAAAAAAAAG8AAAAFAAAAAAADgAQAAQAAAAIAAwAAAAOAAAAkAAAABwAAAAEAAAAEAAAABpGg-51QEZ8EHAiodL3YIhsAAAAL-iyVo5k0UELpA9d_GrHIrh-1SIJliQXRFob4LRgAG8bnETC2jFSU8XZ8Yt5j0dResiOKBiB8P_FUxoUmfsWZFNa9UVRWcwboCZE3Pg1RSNMTUJPn8uSJWxPXhY6y_WY4Vu5U5hkLiFwWPMPDAAAAAYqxrsv0HOtXEF7viQAAABiMGQ4NTgwMy0zOGEwLTQyYjMtODA2ZS03YTRjZjhlMTk2ZWU
